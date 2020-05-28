@@ -12,7 +12,8 @@
   "dependencies": {
     "@types/node": "^14.0.5",
     "express": "^4.17.1",
-    "pg-promise": "^10.5.6"
+    "pg-promise": "^10.5.6",
+    "pug": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
