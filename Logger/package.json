@@ -1,0 +1,17 @@
+{
+  "name": "Logger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "logger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.0.5",
+    "faker": "^4.1.0",
+    "pg": "^8.2.1",
+    "uuid": "^8.1.0"
+  }
+}
