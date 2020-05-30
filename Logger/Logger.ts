@@ -75,11 +75,3 @@ class Logger {
     }
   }
 }
-
-const log = new Logger(
-  'postgres://dwojrnzm:c-_JKegtgW88VTxBKskf5jWJSDSTHXLi@ruby.db.elephantsql.com:5432/dwojrnzm',
-  120,
-  './'
-)
-
-log.start()
