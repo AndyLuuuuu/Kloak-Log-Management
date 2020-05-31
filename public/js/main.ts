@@ -1,4 +1,6 @@
-new Chart(document.getElementById('line-chart'), {
+const canvas = <HTMLCanvasElement>document.getElementById('canvas')
+const ctx = canvas.getContext('2d')
+new Chart(ctx, {
   type: 'line',
   data: {
     labels: [1500, 1600, 1700, 1750, 1800, 1850, 1900, 1950, 1999, 2050],
@@ -42,5 +44,3 @@ new Chart(document.getElementById('line-chart'), {
     },
   },
 })
-
-console.log('This should show')
