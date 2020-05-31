@@ -1,4 +1,3 @@
-const Chart = require('./chart.bundle.min.js')
 new Chart(document.getElementById('line-chart'), {
   type: 'line',
   data: {
@@ -43,3 +42,5 @@ new Chart(document.getElementById('line-chart'), {
     },
   },
 })
+
+console.log('This should show')

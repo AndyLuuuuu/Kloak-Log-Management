@@ -1,4 +1,5 @@
 const fss = require('fs')
+const path = require('path')
 const https = require('https')
 const faker = require('faker')
 const { v4: uuidv4 } = require('uuid')
@@ -12,8 +13,7 @@ let time = 1580000000000
 let randUsers: number = null
 let randConnections: number = null
 
-const dir = `./sharedFolder/Log_Management/timestamp`
-
+const dir = [__dirname, 'sharedFolder', 'Log_Management', 'timestamp']
 // type users = {
 //   email: string
 //   fingerprint: string
@@ -80,17 +80,33 @@ setInterval(() => {
   //     })
   //   }
 
-  const date = new Date().getTime()
-  const err = {
-    serverName: faker.company.companyName(),
-    level: Math.floor(Math.random() * 4),
-    detail: 'Some error message.',
-    time: date,
-  }
-  fss.mkdir(`${dir}/${date}`, (err) => {
-    console.log(err)
+  const date = new Date()
+  date.setSeconds(0)
+  date.setMilliseconds(0)
+  fss.mkdir(path.join(...dir, date.getTime().toString()), (err) => {
+    if (err) {
+      throw err
+    }
+    fss.mkdir(
+      path.join(...dir, date.getTime().toString(), 'error_log'),
+      (err) => {
+        if (err) {
+          throw err
+        }
+        const uuid = uuidv4()
+        fss.writeFile(
+          path.join(...dir, date.getTime().toString(), 'error_log', uuid),
+          JSON.stringify({
+            serverName: uuid,
+            level: Math.floor(Math.random() * 4),
+            detail: 'Some error message.',
+            time: date.getTime().toString(),
+          }),
+          (err) => {
+            console.log(err)
+          }
+        )
+      }
+    )
   })
-  fss.appendFile(`${dir}/${date}/${uuidv4()}`, JSON.stringify(err), (err) => {
-    console.log(err)
-  })
-}, 15000)
+}, 60000)

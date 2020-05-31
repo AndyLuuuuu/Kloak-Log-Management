@@ -1,4 +1,4 @@
 {
-  "include": ["*.ts"],
+  "include": ["*.ts", "./public/js/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
