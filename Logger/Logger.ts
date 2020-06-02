@@ -226,7 +226,7 @@ if (process.argv.slice(2)[0].length < 30) {
   throw Error
 }
 
-// How to activate script
+// How to run script...
 // node Logger.js yourPostgreSQL connection string.
 
 const log = new Logger(
