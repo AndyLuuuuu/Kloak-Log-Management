@@ -25,3 +25,5 @@ app.get('/api/errors/getErrors', (request, response) => {
         response.send(res.rows);
     });
 });
+// How to run script...
+// node server.js yourPostgreSQL connection string.
