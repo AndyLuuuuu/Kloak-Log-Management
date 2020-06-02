@@ -4,6 +4,6 @@
     "module": "CommonJS",
     "target": "ES2020"
   },
-  "include": ["*.ts", "./public/js/*.ts"],
+  "include": ["*.ts", "./public/js/*.ts", "./utils/*.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
